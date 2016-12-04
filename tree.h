@@ -7,12 +7,18 @@ public:
 	void insert(int x);
 	void remove(int x);
 	void print();
+	size_t size();
 	
+	Tree();
 	~Tree();
 	
 private:
 	struct Node {
-		Node(int x) : data(x) {}
+		Node(int x)
+		  : data(x)
+		  , left(nullptr)
+		  , right(nullptr)
+		  , parent(nullptr) {}
 		
 		int data;
 		
@@ -22,9 +28,10 @@ private:
 	};
 	
 	Node* root;
+	size_t m_size;
 	
 	bool search(int x, Node* node);
-	void insert(int x, Node* node);
+	Node* insert(int x, Node* node);
 		
 	//typedef void (*FUNC) (Node* node);
 	//void traverse(Node* node, FUNC func);

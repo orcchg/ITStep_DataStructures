@@ -8,7 +8,8 @@ bool Tree::search(int x) {
 }
 
 void Tree::insert(int x) {
-	insert(x, root);
+	Node* node = insert(x, root);
+	if (root == nullptr) root = node;
 }
 
 void Tree::remove(int x) {
@@ -17,6 +18,13 @@ void Tree::remove(int x) {
 
 void Tree::print() {
 	traversePrint(root);
+}
+
+size_t Tree::size() {
+	return m_size;
+}
+
+Tree::Tree() : root(nullptr), m_size(0) {
 }
 
 Tree::~Tree() {
@@ -35,14 +43,19 @@ bool Tree::search(int x, Node* node) {
 	}
 }
 
-void Tree::insert(int x, Node* node) {
+Tree::Node* Tree::insert(int x, Node* node) {
 	if (node == nullptr) {
-		node = new Node(x);
+		++m_size;
+		return new Node(x);
 	} else {
 		if (node->data >= x) {
-			insert(x, node->left);
+			Node* left = insert(x, node->left);
+			if (node->left == nullptr) node->left = left;
+			return left;
 		} else {
-			insert(x, node->right);
+			Node* right = insert(x, node->right);
+			if (node->right == nullptr) node->right = right;
+			return right;
 		}
 	}
 }
