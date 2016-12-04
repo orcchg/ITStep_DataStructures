@@ -30,8 +30,11 @@ private:
 	Node* root;
 	size_t m_size;
 	
-	bool search(int x, Node* node);
+	Node* search(int x, Node* node);
 	Node* insert(int x, Node* node);
+	void remove(int x, Node* node);
+	Node* predecessor(Node* node);
+	Node* successor(Node* node);
 		
 	//typedef void (*FUNC) (Node* node);
 	//void traverse(Node* node, FUNC func);
