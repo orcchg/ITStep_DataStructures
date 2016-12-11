@@ -51,13 +51,17 @@ Tree::Node* Tree::insert(int x, Node* node) {
 	} else {
 		if (node->data >= x) {
 			Node* left = insert(x, node->left);
-			if (node->left == nullptr) node->left = left;
-			left->parent = node;
+			if (node->left == nullptr) {
+				node->left = left;
+				left->parent = node;
+			}
 			return left;
 		} else {
 			Node* right = insert(x, node->right);
-			if (node->right == nullptr) node->right = right;
-			right->parent = node;
+			if (node->right == nullptr) {
+				node->right = right;
+				right->parent = node;
+			}
 			return right;
 		}
 	}

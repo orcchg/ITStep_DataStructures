@@ -21,8 +21,8 @@ int main(int argc, char** argv) {
 	A.print();  // 0 1 2 3 4 5 6 7 8
 	printf("\n");
 	
+	A.remove(5);
 	printf("Tree size: %zu\n", A.size());
-	A.remove(4);
 	A.print();
 	printf("\n");
 }
