@@ -15,6 +15,8 @@ int main(int argc, char** argv) {
 	A.insert(6);
 	A.insert(8);
 	
+	A.debug();
+	
 	printf("Tree size: %zu\n", A.size());
 	A.print();  // 0 1 2 3 4 5 6 7 8
 	printf("\n");

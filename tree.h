@@ -9,6 +9,10 @@ public:
 	void print();
 	size_t size();
 	
+	void debug() {
+		Node* x = root;
+	}
+	
 	Tree();
 	~Tree();
 	
